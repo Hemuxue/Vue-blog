@@ -1,19 +1,21 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    hello world
-    <i class="iconfont icon-github-fill"></i>
+      <Nav></Nav>
     <router-view/>
   </div>
 </template>
 
 <script>
+import Nav from 'components/nav/nav.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+      Nav
+  }
 }
 </script>
 
 <style lang="stylus" >
   #app
-    // background:#fff;
+    margin 0 auto
 </style>
