@@ -20,7 +20,9 @@
             </ul>
             <ul class="total">
                 <li class="totalItem"
-                v-for="(item,index) of totalList">
+                v-for="(item,index) of totalList"
+                @click="handleRouterClick(index)"
+                :key="item.name">
                     <p class="totalNumber">{{item.total}}</p>
                     <p class="totalDes">{{item.name}}</p>
                 </li>
@@ -34,6 +36,7 @@
 export default {
     data(){
         return {
+            routerList:['history','classify','tags'],
             tabList:['文章目录','站点概览'],
             classifyList:['JavaScript','Vue','Angular','Node'],
             totalList:[
@@ -52,8 +55,12 @@ export default {
         }
     },
     methods: {
-        handleTabClick(index){
+        handleTabClick(index) {
             this.activeTabIndex = index
+        },
+        handleRouterClick(index) {
+            let router_name =  this.routerList[index]
+            this.$router.push({name:router_name})
         }
     }
 }

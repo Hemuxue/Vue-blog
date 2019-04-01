@@ -5,9 +5,11 @@
             <p class="slogan">Share life, share konwledge</p>
         </div>
         <ul class="navList">
-            <li class="navItem currentRouter"
+            <li class="navItem "
                 v-for="(item,index) of navList"
                 :key="item.title"
+                @click="handleNavClick(index)"
+                :class="{currentRouter: index === currentRouterIndex}"
             >
                 <p >
                     <i class="iconfont" :class="item.logo"></i>
@@ -21,6 +23,7 @@
 export default {
     data(){
         return {
+            routerList:['home','about','tags','classify','history'],
             navList:[{
                     logo:'icon-home1',
                     title:'首页',
@@ -39,11 +42,35 @@ export default {
                     title:'归档'
                 }
             ],
-            currentRouter:'',
+            currentRouterIndex:0,
+        }
+    },
+    created(){
+        let name = this.$route.name
+        this.routerList.forEach( (item,index) =>{
+            if(item === name){
+                this.currentRouterIndex = index
+            }
+        })
+
+    },
+    watch:{
+        $route(to,form){
+            let name = to.name
+            this.routerList.forEach( (item,index) =>{
+                if(item === name){
+                    this.currentRouterIndex = index
+                }
+            })
         }
     },
     methods:{
+        handleNavClick(index){
+            let router_name =  this.routerList[index]
+            this.$router.push({name:router_name})
+        }
     },
+
 }
 </script>
 <style lang="stylus" scoped>
@@ -73,10 +100,22 @@ export default {
             .navItem
                 width 100%
                 cursor pointer
-                opacity 0.6
+                opacity 0.8
                 &.currentRouter
-                    background-color #eee
+                    background-color rgb(249,249,249)
+                    >p
+                        &:after
+                            content ''
+                            position absolute
+                            top:50%
+                            right 15px
+                            margin-top -3px
+                            height 6px
+                            width 6px
+                            border-radius 3px
+                            background-color #999
                 &:hover
+                    background-color rgb(249,249,249)
                     opacity 1
                 >p
                     position relative
@@ -86,16 +125,7 @@ export default {
                     padding 5px 20px
                     line-height 30px
                     height 40px
-                    &:after
-                        content ''
-                        position absolute
-                        top:50%
-                        right 15px
-                        margin-top -3px
-                        height 6px
-                        width 6px
-                        border-radius 3px
-                        background-color #bbb
+
                     >span
                         margin-left 5px
 

@@ -1,11 +1,17 @@
 <template>
   <div id="app">
-    <Nav></Nav>
-    <Abstract
-    class="Abstract"
-    ref="abstract"
-    :class="{top:isTop}"></Abstract>
-    <router-view/>
+    <div class="wrapper">
+        <div class="leftWrap">
+            <Nav></Nav>
+            <Abstract
+            class="Abstract"
+            ref="abstract"
+            :class="{top:isTop}"></Abstract>
+        </div>
+
+        <router-view class="rightWarp"/>
+    </div>
+
   </div>
 </template>
 
@@ -39,8 +45,6 @@ export default {
                 }
             }
         },16)
-
-
     }
 
 }
@@ -48,11 +52,20 @@ export default {
 
 <style lang="stylus" >
   #app
-    margin 0 auto
     height 2000px
-    .Abstract
-        margin-top 15px;
-        &.top
-            position fixed
-            top 0px
+    width 100%;
+    .wrapper
+        // display inline-block
+        margin 0 auto
+        overflow hidden
+        .leftWrap
+            float left
+            margin-right 20px
+            .Abstract
+                margin-top 15px;
+                &.top
+                    position fixed
+                    top 0px
+        .rightWarp
+            float left
 </style>
