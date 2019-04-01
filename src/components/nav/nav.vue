@@ -8,8 +8,6 @@
             <li class="navItem currentRouter"
                 v-for="(item,index) of navList"
                 :key="item.title"
-                @mouseenter="handleMouseEenter(index)"
-                :class="{active:index===activeIndex}"
             >
                 <p >
                     <i class="iconfont" :class="item.logo"></i>
@@ -42,21 +40,18 @@ export default {
                 }
             ],
             currentRouter:'',
-            //当前鼠标放在上面的index值
-            activeIndex:'',
         }
     },
     methods:{
-        handleMouseEenter(index){
-            this.activeIndex = index
-        }
     },
 }
 </script>
 <style lang="stylus" scoped>
+@import '~common/stylus/variable.styl';
     .nav
         width 240px
-        background-color #fff
+        background-color $color-background-content
+        font-size $font-size-medium
         .titleWrap
             background-color #000
             width 100%
@@ -65,7 +60,7 @@ export default {
             .title
                 height 30px
                 line-height 30px
-                color #fff
+                color $color-text
                 text-align center
             .slogan
                 margin-top 10px
@@ -81,13 +76,13 @@ export default {
                 opacity 0.6
                 &.currentRouter
                     background-color #eee
-                &.active
+                &:hover
                     opacity 1
                 >p
                     position relative
                     width 100%
                     box-sizing border-box
-                    font-size 14px
+                    font-size $font-size-medium
                     padding 5px 20px
                     line-height 30px
                     height 40px
