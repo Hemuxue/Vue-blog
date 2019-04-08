@@ -58,14 +58,17 @@ export default {
         // display inline-block
         margin 0 auto
         overflow hidden
+        display flex
+        justify-content center
         .leftWrap
-            float left
             margin-right 20px
             .Abstract
-                margin-top 15px;
+                margin-top 15px
                 &.top
                     position fixed
                     top 0px
         .rightWarp
-            float left
+            width 700px
+            box-sizing border-box
+            padding 40px
 </style>

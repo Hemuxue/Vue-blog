@@ -9,5 +9,6 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-
+    #home
+        background-color #fff
 </style>

@@ -89,6 +89,7 @@ export default {
                 line-height 30px
                 color $color-text
                 text-align center
+                font-size 20px
             .slogan
                 margin-top 10px
                 text-align center
