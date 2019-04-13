@@ -71,4 +71,5 @@ export default {
             width 700px
             box-sizing border-box
             padding 40px
+            background-color #fff
 </style>
