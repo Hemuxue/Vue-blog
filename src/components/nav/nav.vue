@@ -1,7 +1,7 @@
 <template>
     <nav class="nav">
         <div class="titleWrap">
-            <h2 class="title">Shily's Blog</h2>
+            <h2 class="title">Shirly's Blog</h2>
             <p class="slogan">Share life, share konwledge</p>
         </div>
         <ul class="navList">
