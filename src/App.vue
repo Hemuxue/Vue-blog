@@ -52,7 +52,6 @@ export default {
 
 <style lang="stylus" >
   #app
-    height 2000px
     width 100%;
     .wrapper
         // display inline-block

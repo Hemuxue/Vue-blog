@@ -5,38 +5,45 @@ import About from 'components/about/about.vue'
 import Tags from 'components/tags/tags.vue'
 import Classify from 'components/classify/classify.vue'
 import History from 'components/history/history.vue'
+import Detail from 'components/detail/detail.vue'
+
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-        path:'/',
-        redirect: '/home'
+      path: '/',
+      redirect: '/home'
     },
     {
-        path: '/home',
-        name: 'home',
-        component: Home
+      path: '/home',
+      name: 'home',
+      component: Home
     },
     {
-        path:'/about',
-        name:'about',
-        component: About
+      path: '/detail/:id',
+      name: 'detail',
+      component: Detail
     },
     {
-        path:'/tags',
-        name:'tags',
-        component: Tags
+      path: '/about',
+      name: 'about',
+      component: About
     },
     {
-        path:'/classify',
-        name:'classify',
-        component: Classify
+      path: '/tags',
+      name: 'tags',
+      component: Tags
     },
     {
-        path:'/history',
-        name:'history',
-        component: History
+      path: '/classify',
+      name: 'classify',
+      component: Classify
+    },
+    {
+      path: '/history',
+      name: 'history',
+      component: History
     }
   ]
 
