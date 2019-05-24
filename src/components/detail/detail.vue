@@ -22,7 +22,7 @@
             <i class="iconfont icon-comment"></i>
           </span>
           <span class="textWrap">评论数：</span>
-          <span class="textWrap">123</span>
+          <span class="textWrap">{{count}}</span>
         </p>
         <p class="desItem">
           <span class="textWrap">
@@ -34,7 +34,7 @@
       </div>
       <div class="content" v-html="blog.content"></div>
     </div>
-    <Comment :blogId="id"></Comment>
+    <Comment :blogId="id" @hadnleCommentCount="hadnleCommentCount"></Comment>
   </div>
 </template>
 <script>
@@ -52,7 +52,8 @@ export default {
       page: 1,
       pageSize: 10,
       total: 0,
-      loading: true
+      loading: true,
+      count: 0
     };
   },
   created() {
@@ -78,6 +79,9 @@ export default {
           this.loading = false;
         }
       });
+    },
+    hadnleCommentCount(count) {
+      this.count = count
     }
   }
 };
@@ -130,8 +134,6 @@ export default {
     .content {
       overflow: hidden;
       margin-top: 35px;
-      max-height: 300px;
-      min-width: 100px;
 
       img {
         max-width: 620px;

@@ -132,6 +132,7 @@ export default {
         this.commentForm.email === ""
       ) {
         this.$message.error("请输入完整信息");
+        this.submitting = false;
         return;
       }
       Axios.get(
@@ -206,6 +207,7 @@ export default {
       Axios.get(`/api/queryCommentsCountByBlogId?bid=${this.blogId}`).then((data) => {
         if(data.data.code === 200 && data.data.status == 'success') {
           this.count = data.data.data.count
+          this.$emit('hadnleCommentCount',this.count)
         }
       })
     }

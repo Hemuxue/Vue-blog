@@ -44,6 +44,11 @@ export default new Router({
       path: '/history',
       name: 'history',
       component: History
+    },
+    {
+      path: '/history/:id',
+      name: 'history-detail',
+      component: History,
     }
   ]
 

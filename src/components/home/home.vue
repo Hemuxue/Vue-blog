@@ -20,13 +20,6 @@
           </p>
           <p class="desItem">
             <span class="textWrap">
-              <i class="iconfont icon-comment"></i>
-            </span>
-            <span class="textWrap">评论数：</span>
-            <span class="textWrap">{{item.common_number}}</span>
-          </p>
-          <p class="desItem">
-            <span class="textWrap">
               <i class="iconfont icon-icon_yulan"></i>
             </span>
             <span class="textWrap">阅读次数：</span>
@@ -59,22 +52,18 @@ export default {
   methods: {
     getBlog(page = 1 , pageSize = 10){
       Axios.get(`/api/getBlogList?page=${page}&pageSize=${pageSize}`).then(data => {
-        console.log(data);
         this.blogList = [];
         if(data.data.code === 200 && data.data.status === 'success'){
           const temp = data.data.data;
           this.total = temp.total
           temp.data.forEach(item =>{
             item.ctime = yearFromate(item.ctime)
-            item.common_number = '123'
             this.blogList.push(item);
           })
-          console.log(this.blogList);
         }
       })
     },
     handleDetailClick(id){
-      console.log(id)
       this.$router.push({path: `detail/${id}`})
     }
   }

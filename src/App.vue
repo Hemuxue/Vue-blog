@@ -11,7 +11,6 @@
 
         <router-view class="rightWarp"/>
     </div>
-
   </div>
 </template>
 
