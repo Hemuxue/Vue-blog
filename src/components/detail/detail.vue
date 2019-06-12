@@ -138,6 +138,16 @@ export default {
       img {
         max-width: 620px;
       }
+      div,p,span {
+        line-height 1.8;
+      }
+      pre {
+        padding 10px;
+        background:#f1f1f1;
+        overflow:auto;
+        code {
+        }
+      }
     }
   }
 }

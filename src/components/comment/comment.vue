@@ -103,6 +103,7 @@ export default {
         const tempData = data.data;
         if (tempData.code === 200 && tempData.status === "success") {
           tempData.data.forEach((ele, index) => {
+            ele.ctime = yearFromate(ele.ctime);
             if (ele.parent == "-1") {
               this.commentList.push(ele);
             }
@@ -159,14 +160,22 @@ export default {
           } else {
             this.commentList.forEach(ele => {
               if(ele.id == this.parentInfo.parent) {
+                if(!ele.children) {
+                  ele.children = [];
+                }
                 ele.children.push(obj)
                 this.$set(this.commentList, 'children', ele);
-
               }
             })
 
           }
+          this.value = "",
+          this.commentForm = {
+            user_name: "",
+            email: ""
+          }
           this.getLocaltion()
+          this.getCommentCount()
         }
       });
 
